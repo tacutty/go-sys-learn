@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	filename := flag.String("filename", ".env", "specify the filename to read")
+	filename := flag.String("e", ".env", ".env file name to read")
 	flag.Parse()
 
 	if len(flag.Args()) < 1 {
@@ -20,7 +20,6 @@ func main() {
 
 	cmdName := flag.Arg(0)
 	args := flag.Args()[1:]
-	flag.Args()
 
 	cmd := exec.Command(cmdName, args...)
 

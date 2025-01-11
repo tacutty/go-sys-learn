@@ -31,9 +31,9 @@ func (cf *CloudFileSystem) GetAttr(path string, stat *fuse.Stat_t, fh uint64) (e
 		if err != nil {
 			return fuse.ENOENT
 		}
-		stat.Mode = fuse.S_IFREG | 0555
+		stat.Mode = fuse.S_IFDIR | 0555
 	} else {
-		stat.Mode = fuse.S_IFDIR | 0444
+		stat.Mode = fuse.S_IFREG | 0444
 		stat.Size = a.Size
 		stat.Mtim = fuse.NewTimespec(a.ModTime)
 	}
